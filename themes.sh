@@ -37,6 +37,6 @@ with open(path, 'w') as f:
 "
  
 # reload Cinnamon
-#cinnamon --replace &
+cinnamon --replace &
  
 echo "done"
