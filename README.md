@@ -1,1 +1,1 @@
-curl -s https://raw.githubusercontent.com/aidanoakes/Mint-Y-Yaru/main/themes.sh | sed 's/\r//' | bash
+curl -s https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/themes.sh | sed 's/\r//' | bash
