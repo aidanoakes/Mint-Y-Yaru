@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# install dependencies
-sudo apt install -y ubuntu-wallpapers
-
 # download and install Mint-Y-Yaru theme
 wget -O /tmp/Mint-Y-Yaru.zip https://github.com/adinmaccabee/Mint-Y-Yaru/raw/main/Mint-Y-Yaru.zip
 mkdir -p ~/.themes
