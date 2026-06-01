@@ -23,7 +23,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "Mint-Y-Yaru"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" 2>/dev/null || true
 
 # force dark mode in Firefox profile
-FIREFOX_PROFILE=$(find ~/.mozilla/firefox -maxdepth 1 -name "*.default-release" -type d 2>/dev/null | head -1)
+FIREFOX_PROFILE=$(find ~/.mozilla/firefox -maxdepth 1 -name "*default-release" -type d 2>/dev/null | head -1)
 if [ -n "$FIREFOX_PROFILE" ]; then
     echo 'user_pref("ui.systemUsesDarkTheme", 1);' >> "$FIREFOX_PROFILE/user.js"
     echo "Firefox dark mode set for profile: $FIREFOX_PROFILE"
