@@ -13,7 +13,7 @@ done
 
 # register wallpapers in background settings
 mkdir -p ~/.local/share/gnome-background-properties
-cat > ~/.local/share/gnome-background-properties/yaru-wallpapers.xml << XML
+cat > ~/.local/share/gnome-background-properties/Yaru.xml << XML
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
