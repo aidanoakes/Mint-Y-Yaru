@@ -18,37 +18,37 @@ cat > ~/.local/share/gnome-background-properties/yaru-wallpapers.xml << 'XML'
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
   <wallpaper deleted="false">
-    <name>Sele Ring</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/sele_ring.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Bloom</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/bloom.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Bloom Lockscreen</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/bloom_lockscreen.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Bloom Server</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/bloom_server.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Bloom VM</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/bloom_vm.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Frutiger Aero</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/frutiger_aero.png</filename>
     <options>zoom</options>
   </wallpaper>
   <wallpaper deleted="false">
-    <name>Geometric</name>
+    <name>Yaru</name>
     <filename>$HOME/.local/share/backgrounds/yaru/geometric.png</filename>
     <options>zoom</options>
   </wallpaper>
