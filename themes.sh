@@ -6,9 +6,9 @@ mkdir -p ~/.themes
 unzip -o /tmp/Mint-Y-Yaru.zip -d ~/.themes/
 
 # download wallpapers
-sudo mkdir -p /usr/share/backgrounds/yaru
+mkdir -p ~/.local/share/backgrounds/yaru
 for wallpaper in bloom.png bloom_lockscreen.png bloom_server.png bloom_vm.png frutiger_aero.png geometric.png sele_ring.png; do
-    sudo wget -q -P /usr/share/backgrounds/yaru https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/yaru-wallpapers/$wallpaper
+    wget -q -P ~/.local/share/backgrounds/yaru https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/yaru-wallpapers/$wallpaper
 done
 
 # apply themes
@@ -23,7 +23,7 @@ gsettings set org.cinnamon.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 # set wallpaper
-gsettings set org.cinnamon.desktop.background picture-uri "file:///usr/share/backgrounds/yaru/sele_ring.png"
+gsettings set org.cinnamon.desktop.background picture-uri "file://$HOME/.local/share/backgrounds/yaru/sele_ring.png"
 
 # move panel to left
 gsettings set org.cinnamon panels-enabled "['1:0:left']"
