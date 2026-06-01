@@ -11,6 +11,53 @@ for wallpaper in bloom.png bloom_lockscreen.png bloom_server.png bloom_vm.png fr
     wget -q -P ~/.local/share/backgrounds/yaru https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/yaru-wallpapers/$wallpaper
 done
 
+# register wallpapers in background settings
+mkdir -p ~/.local/share/gnome-background-properties
+cat > ~/.local/share/gnome-background-properties/yaru-wallpapers.xml << 'XML'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Sele Ring</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/sele_ring.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Bloom</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/bloom.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Bloom Lockscreen</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/bloom_lockscreen.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Bloom Server</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/bloom_server.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Bloom VM</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/bloom_vm.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Frutiger Aero</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/frutiger_aero.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>Geometric</name>
+    <filename>$HOME/.local/share/backgrounds/yaru/geometric.png</filename>
+    <options>zoom</options>
+  </wallpaper>
+</wallpapers>
+XML
+
+# expand $HOME in the xml
+sed -i "s|\$HOME|$HOME|g" ~/.local/share/gnome-background-properties/yaru-wallpapers.xml
+
 # apply themes
 gsettings set org.cinnamon.desktop.interface cursor-theme "Yaru"
 gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Yaru"
@@ -18,9 +65,9 @@ gsettings set org.cinnamon.desktop.wm.preferences theme "Mint-Y-Yaru"
 gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y-Yaru"
 gsettings set org.cinnamon.theme name "Mint-Y-Yaru"
 
-# set dark mode
-gsettings set org.cinnamon.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+# dark mode for Firefox
+gsettings set org.gnome.desktop.interface gtk-theme "Mint-Y-Yaru"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" 2>/dev/null || true
 
 # set wallpaper
 gsettings set org.cinnamon.desktop.background picture-uri "file://$HOME/.local/share/backgrounds/yaru/sele_ring.png"
