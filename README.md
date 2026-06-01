@@ -10,8 +10,6 @@ A custom dark theme for Linux Mint Cinnamon, based on **Mint-Y-Dark** with an or
 
 ![File Manager](img1.png)
 
-![Theme Settings](img0.png)
-
 ---
 
 ## What's included
