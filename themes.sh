@@ -11,50 +11,6 @@ for wallpaper in bloom.png bloom_lockscreen.png bloom_server.png bloom_vm.png fr
     wget -q -P ~/.local/share/backgrounds/yaru https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/yaru-wallpapers/$wallpaper
 done
 
-# register wallpapers in background settings
-mkdir -p ~/.local/share/gnome-background-properties
-cat > ~/.local/share/gnome-background-properties/Yaru.xml << XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
-<wallpapers>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/sele_ring.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/bloom.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/bloom_lockscreen.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/bloom_server.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/bloom_vm.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/frutiger_aero.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-  <wallpaper deleted="false">
-    <name>Yaru</name>
-    <filename>$HOME/.local/share/backgrounds/yaru/geometric.png</filename>
-    <options>zoom</options>
-  </wallpaper>
-</wallpapers>
-XML
-
 # apply themes
 gsettings set org.cinnamon.desktop.interface cursor-theme "Yaru"
 gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Yaru"
@@ -65,6 +21,13 @@ gsettings set org.cinnamon.theme name "Mint-Y-Yaru"
 # dark mode for Firefox
 gsettings set org.gnome.desktop.interface gtk-theme "Mint-Y-Yaru"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark" 2>/dev/null || true
+
+# force dark mode in Firefox profile
+FIREFOX_PROFILE=$(find ~/.mozilla/firefox -maxdepth 1 -name "*.default-release" -type d 2>/dev/null | head -1)
+if [ -n "$FIREFOX_PROFILE" ]; then
+    echo 'user_pref("ui.systemUsesDarkTheme", 1);' >> "$FIREFOX_PROFILE/user.js"
+    echo "Firefox dark mode set for profile: $FIREFOX_PROFILE"
+fi
 
 # set wallpaper
 gsettings set org.cinnamon.desktop.background picture-uri "file://$HOME/.local/share/backgrounds/yaru/sele_ring.png"
