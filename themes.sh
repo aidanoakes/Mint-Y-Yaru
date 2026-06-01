@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # download and install Mint-Y-Yaru theme
-wget -O /tmp/Mint-Y-Yaru.zip https://github.com/adinmaccabee/Mint-Y-Yaru/raw/main/Mint-Y-Yaru.zip
+wget -O /tmp/Mint-Y-Yaru.zip https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/Mint-Y-Yaru.zip
 mkdir -p ~/.themes
 unzip -o /tmp/Mint-Y-Yaru.zip -d ~/.themes/
 
-# download background
-sudo wget -O /usr/share/backgrounds/custom-background.png https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/background.png
+# download wallpapers
+sudo mkdir -p /usr/share/backgrounds/yaru
+for wallpaper in bloom.png bloom_lockscreen.png bloom_server.png bloom_vm.png frutiger_aero.png geometric.png sele_ring.png; do
+    sudo wget -q -P /usr/share/backgrounds/yaru https://raw.githubusercontent.com/adinmaccabee/Mint-Y-Yaru/main/yaru-wallpapers/$wallpaper
+done
 
 # apply themes
 gsettings set org.cinnamon.desktop.interface cursor-theme "Yaru"
@@ -15,8 +18,8 @@ gsettings set org.cinnamon.desktop.wm.preferences theme "Mint-Y-Yaru"
 gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y-Yaru"
 gsettings set org.cinnamon.theme name "Mint-Y-Yaru"
 
-# set background
-gsettings set org.cinnamon.desktop.background picture-uri "file:///usr/share/backgrounds/custom-background.png"
+# set wallpaper
+gsettings set org.cinnamon.desktop.background picture-uri "file:///usr/share/backgrounds/yaru/sele_ring.png"
 
 # move panel to left
 gsettings set org.cinnamon panels-enabled "['1:0:left']"
